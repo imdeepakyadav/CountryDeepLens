@@ -112,7 +112,7 @@ CountryDeepLens/
 5. **Open your browser**
    - **GUI**: http://localhost:3001
    - **API**: http://localhost:3000
-   - **API Documentation**: http://localhost:3000/api-docs
+   - **API Documentation**: http://localhost:3000/docs
 
 ## 🌐 API Endpoints
 
@@ -326,7 +326,7 @@ NODE_ENV=development
 
 ## 📚 API Documentation
 
-Interactive API documentation is available at `/api-docs` when the API server is running. It includes:
+Interactive API documentation is available at `/docs` when the API server is running. It includes:
 
 - 📖 **Detailed endpoint descriptions**
 - 🔄 **Request/response examples**
@@ -419,7 +419,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 📧 **Email**: support@countrydeeplens.com
 - 🐛 **Issues**: [GitHub Issues](https://github.com/imdeepakyadav/countrydeeplens/issues)
-- 📖 **Documentation**: [API Docs](http://localhost:3000/api-docs)
+- 📖 **Documentation**: [API Docs](http://localhost:3000/docs)
 
 ## 🔄 Version History
 

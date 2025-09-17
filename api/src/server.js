@@ -19,7 +19,8 @@ const swaggerOptions = {
     info: {
       title: 'CountryDeepLens API',
       version: '1.0.0',
-      description: 'A comprehensive REST API for country data with advanced filtering and search capabilities',
+      description:
+        'A comprehensive REST API for country data with advanced filtering and search capabilities',
       contact: {
         name: 'CountryDeepLens API Support',
       },
@@ -134,7 +135,7 @@ const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api/countries', require('./routes/countries'));
 
 // Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -150,7 +151,7 @@ app.get('/', (req, res) => {
   res.json({
     message: 'Welcome to CountryDeepLens API',
     version: '1.0.0',
-    documentation: `/api-docs`,
+    documentation: `/docs`,
     endpoints: {
       countries: '/api/countries',
       countryByCode: '/api/countries/{code}',
@@ -176,7 +177,7 @@ app.use('*', (req, res) => {
       'GET /api/countries/language/{language}',
       'GET /api/countries/currency/{currency}',
       'GET /api/countries/stats',
-      'GET /api-docs',
+      'GET /docs',
     ],
   });
 });
@@ -187,14 +188,17 @@ app.use((err, req, res, next) => {
   res.status(500).json({
     success: false,
     message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error',
+    error:
+      process.env.NODE_ENV === 'development'
+        ? err.message
+        : 'Internal server error',
   });
 });
 
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 CountryDeepLens API is running on port ${PORT}`);
-  console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
+  console.log(`📚 API Documentation: http://localhost:${PORT}/docs`);
   console.log(`🏥 Health Check: http://localhost:${PORT}/health`);
 });
 

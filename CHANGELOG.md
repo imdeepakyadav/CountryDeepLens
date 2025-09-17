@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial project setup and documentation
 - Comprehensive README with installation and usage guides
 - Contributing guidelines and code of conduct
@@ -20,15 +21,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Linting and code formatting with ESLint and Prettier
 
 ### Changed
+
 - Enhanced package.json with comprehensive scripts
 - Updated project structure documentation
 
 ### Fixed
+
 - Various documentation improvements
 
 ## [1.0.0] - 2024-01-XX
 
 ### Added
+
 - 🌍 **Complete REST API** for country data with Express.js
 - 🔍 **Advanced filtering** by region, language, currency, population, area
 - 📊 **Statistical endpoints** with comprehensive analytics
@@ -42,15 +46,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 🚀 **Quick start scripts** for Windows and Unix systems
 
 ### Features
+
 - **20+ countries** with detailed information
 - **Real-time search** as you type
 - **Multiple sorting options** (name, population, area)
 - **Responsive grid layout** for all devices
 - **Country flag display** with emoji support
 - **Comprehensive API endpoints** with filtering
-- **Interactive documentation** at `/api-docs`
+- **Interactive documentation** at `/docs`
 
 ### Technical Details
+
 - **Backend**: Node.js with Express.js framework
 - **Frontend**: Next.js with TypeScript and Tailwind CSS
 - **Documentation**: Swagger/OpenAPI specification
@@ -75,4 +81,4 @@ For older versions, please check the [Git history](https://github.com/imdeepakya
 
 ---
 
-*This changelog was generated with ❤️ for transparency and user awareness.*
+_This changelog was generated with ❤️ for transparency and user awareness._

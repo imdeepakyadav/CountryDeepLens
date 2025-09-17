@@ -33,7 +33,7 @@ cd ..
 echo
 echo "Starting API server on http://localhost:3000"
 echo "Starting client on http://localhost:3001"
-echo "API documentation available at http://localhost:3000/api-docs"
+echo "API documentation available at http://localhost:3000/docs"
 echo
 echo "Press Ctrl+C to stop both servers"
 echo
