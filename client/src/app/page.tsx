@@ -6,7 +6,10 @@ import {
   ExternalLink,
   Filter,
   Globe,
+  MapPin,
   Search,
+  Sparkles,
+  TrendingUp,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -108,65 +111,83 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+    <div className="min-h-screen gradient-bg">
+      <header className="glass-effect border-b border-white/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <Globe className="h-6 w-6 text-white" />
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center space-x-6">
+              <div className="relative">
+                <div className="bg-gradient-to-br from-primary to-secondary p-3 rounded-2xl shadow-lg floating-animation">
+                  <Globe className="h-8 w-8 text-white" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full pulse-glow"></div>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">
+                <h1 className="text-3xl font-bold text-gradient">
                   CountryDeepLens
                 </h1>
-                <p className="text-sm text-gray-500">Explore the world</p>
+                <p className="text-muted-foreground font-medium flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-secondary" />
+                  Discover the world's beauty
+                </p>
               </div>
             </div>
-            <a
-              href="http://localhost:3000/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              API Docs
-            </a>
+            <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
+                <TrendingUp className="h-4 w-4 text-primary" />
+                <span>{pagination.total} countries explored</span>
+              </div>
+              <a
+                href="http://localhost:5000/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                <ExternalLink className="h-4 w-4" />
+                API Docs
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Search and Filters */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="space-y-4">
+      <div className="glass-effect border-b border-white/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="space-y-6">
             {/* Search Bar */}
-            <div className="max-w-md">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search countries..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="input-field"
-                />
+            <div className="relative max-w-2xl mx-auto">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-6 w-6 text-primary" />
               </div>
+              <input
+                type="text"
+                placeholder="Search countries, capitals, regions..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="input-field text-lg font-medium shadow-xl"
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
-              <div className="w-full">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-foreground">
                   Region
                 </label>
                 <div className="relative">
-                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-primary" />
                   <select
                     value={selectedRegion}
                     onChange={(e) => setSelectedRegion(e.target.value)}
-                    className="select-field"
+                    className="select-field font-medium"
                   >
                     <option value="">All Regions</option>
                     {regions.map((region) => (
@@ -178,16 +199,16 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="w-full">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-foreground">
                   Language
                 </label>
                 <div className="relative">
-                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-primary" />
                   <select
                     value={selectedLanguage}
                     onChange={(e) => setSelectedLanguage(e.target.value)}
-                    className="select-field"
+                    className="select-field font-medium"
                   >
                     <option value="">All Languages</option>
                     {languages.map((language) => (
@@ -199,16 +220,16 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="w-full">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-foreground">
                   Sort by
                 </label>
                 <div className="relative">
-                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-primary" />
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="select-field"
+                    className="select-field font-medium"
                   >
                     <option value="">Default</option>
                     <option value="name">Name</option>
@@ -218,12 +239,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="w-full">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-foreground opacity-0">
+                  Clear
+                </label>
                 <button
                   onClick={clearAllFilters}
-                  className="btn-secondary w-full inline-flex items-center justify-center"
+                  className="btn-outline w-full inline-flex items-center justify-center gap-2"
                 >
-                  <X className="h-4 w-4 mr-2" />
+                  <X className="h-4 w-4" />
                   Clear Filters
                 </button>
               </div>
@@ -232,16 +256,18 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Results Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Countries</h2>
-            <p className="text-gray-600 mt-1">
+            <h2 className="text-4xl font-bold text-foreground mb-2">
+              Explore Countries
+            </h2>
+            <p className="text-lg text-muted-foreground flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-secondary" />
               {loading
-                ? "Loading..."
-                : `Showing ${countries.length} of ${pagination.total} countries`}
+                ? "Loading amazing destinations..."
+                : `Discover ${countries.length} of ${pagination.total} incredible places`}
             </p>
           </div>
         </div>
@@ -253,42 +279,51 @@ export default function Home() {
         {!loading && (
           <>
             {countries.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
                 {countries.map((country) => (
                   <CountryCard key={country.code} country={country} />
                 ))}
               </div>
             ) : (
-              /* Empty State */
-              <div className="text-center py-16">
-                <Globe className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
+              /* Enhanced empty state with better visual design */
+              <div className="text-center py-20">
+                <div className="relative inline-block mb-6">
+                  <Globe className="h-24 w-24 text-muted-foreground/30 mx-auto floating-animation" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary rounded-full pulse-glow"></div>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-3">
                   No countries found
                 </h3>
-                <p className="text-gray-600">
-                  Try adjusting your search or filters
+                <p className="text-muted-foreground text-lg mb-6">
+                  Try adjusting your search or filters to discover more places
                 </p>
+                <button
+                  onClick={clearAllFilters}
+                  className="btn-secondary inline-flex items-center gap-2"
+                >
+                  <X className="h-4 w-4" />
+                  Clear all filters
+                </button>
               </div>
             )}
 
-            {/* Pagination */}
             {pagination.pages > 1 && (
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-sm text-gray-600">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 glass-effect rounded-2xl">
+                <div className="text-muted-foreground font-medium">
                   Page {pagination.page} of {pagination.pages}
                 </div>
 
-                <div className="flex items-center space-x-1 sm:space-x-2">
+                <div className="flex items-center space-x-2">
                   <button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-3 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/10 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 disabled:hover:border-border disabled:hover:bg-transparent"
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-5 w-5" />
                   </button>
 
                   {/* Page Numbers */}
-                  <div className="hidden sm:flex">
+                  <div className="hidden sm:flex gap-1">
                     {Array.from(
                       { length: Math.min(5, pagination.pages) },
                       (_, i) => {
@@ -301,10 +336,10 @@ export default function Home() {
                           <button
                             key={pageNum}
                             onClick={() => setCurrentPage(pageNum)}
-                            className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                            className={`px-4 py-2 rounded-xl font-semibold transition-all duration-300 ${
                               currentPage === pageNum
-                                ? "bg-blue-600 text-white"
-                                : "border border-gray-200 hover:bg-gray-50"
+                                ? "bg-primary text-primary-foreground shadow-lg"
+                                : "border-2 border-border hover:border-primary hover:bg-primary/10"
                             }`}
                           >
                             {pageNum}
@@ -316,7 +351,7 @@ export default function Home() {
 
                   {/* Mobile pagination */}
                   <div className="sm:hidden">
-                    <span className="px-3 py-2 text-sm font-medium text-gray-700">
+                    <span className="px-4 py-2 text-sm font-semibold text-foreground">
                       {currentPage} / {pagination.pages}
                     </span>
                   </div>
@@ -328,9 +363,9 @@ export default function Home() {
                       )
                     }
                     disabled={currentPage === pagination.pages}
-                    className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-3 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/10 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 disabled:hover:border-border disabled:hover:bg-transparent"
                   >
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-5 w-5" />
                   </button>
                 </div>
               </div>
