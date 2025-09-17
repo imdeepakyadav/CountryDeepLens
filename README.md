@@ -62,17 +62,20 @@ CountryDeepLens/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/yourusername/countrydeeplens.git
+   git clone https://github.com/imdeepakyadav/countrydeeplens.git
    cd countrydeeplens
    ```
 
 2. **Install API dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Install client dependencies**
+
    ```bash
    cd client
    npm install
@@ -82,6 +85,7 @@ CountryDeepLens/
 4. **Start the development servers**
 
    **Option A: Manual Start**
+
    ```bash
    # Terminal 1: Start API server
    npm run dev
@@ -91,12 +95,14 @@ CountryDeepLens/
    ```
 
    **Option B: Quick Start (Windows)**
+
    ```bash
    # Run the batch file to start everything
    start.bat
    ```
 
    **Option C: Quick Start (Linux/Mac)**
+
    ```bash
    # Make script executable and run
    chmod +x start.sh
@@ -111,6 +117,7 @@ CountryDeepLens/
 ## 🌐 API Endpoints
 
 ### Base URL
+
 ```
 http://localhost:3000/api
 ```
@@ -118,11 +125,13 @@ http://localhost:3000/api
 ### Core Endpoints
 
 #### Get All Countries
+
 ```http
 GET /api/countries
 ```
 
 **Query Parameters:**
+
 - `region` - Filter by region (Asia, Europe, Africa, Americas, Oceania)
 - `subregion` - Filter by subregion
 - `language` - Filter by language
@@ -138,6 +147,7 @@ GET /api/countries
 - `order` - Sort order (asc, desc)
 
 **Example Requests:**
+
 ```bash
 # Get all countries
 GET /api/countries
@@ -162,47 +172,56 @@ GET /api/countries?region=Europe&language=English&sort=name
 ```
 
 #### Get Country by Code
+
 ```http
 GET /api/countries/{code}
 ```
 
 **Example:**
+
 ```bash
 GET /api/countries/IN
 GET /api/countries/us
 ```
 
 #### Get Countries by Region
+
 ```http
 GET /api/countries/region/{region}
 ```
 
 **Example:**
+
 ```bash
 GET /api/countries/region/Asia
 ```
 
 #### Get Countries by Language
+
 ```http
 GET /api/countries/language/{language}
 ```
 
 **Example:**
+
 ```bash
 GET /api/countries/language/English
 ```
 
 #### Get Countries by Currency
+
 ```http
 GET /api/countries/currency/{currency}
 ```
 
 **Example:**
+
 ```bash
 GET /api/countries/currency/USD
 ```
 
 #### Get Statistics
+
 ```http
 GET /api/countries/stats
 ```
@@ -212,6 +231,7 @@ Returns comprehensive statistics about the country dataset.
 ### Response Format
 
 #### Success Response
+
 ```json
 {
   "success": true,
@@ -230,6 +250,7 @@ Returns comprehensive statistics about the country dataset.
 ```
 
 #### Error Response
+
 ```json
 {
   "success": false,
@@ -277,6 +298,7 @@ Each country object contains:
 ### Available Scripts
 
 #### API Scripts
+
 ```bash
 npm start          # Start production server
 npm run dev        # Start development server with nodemon
@@ -284,6 +306,7 @@ npm test           # Run tests (not implemented yet)
 ```
 
 #### Client Scripts
+
 ```bash
 cd client
 npm run dev        # Start development server
@@ -314,23 +337,28 @@ Interactive API documentation is available at `/api-docs` when the API server is
 ## 🎯 Available Filters
 
 ### Regions
+
 - 🌏 Asia, Europe, Africa, Americas, Oceania
 
 ### Languages
+
 - 🗣️ English, Spanish, French, Arabic, Chinese, Hindi, Portuguese, Russian, German, Japanese, and many more
 
 ### Currencies
+
 - 💰 USD, EUR, GBP, INR, JPY, CNY, and many more
 
 ## 🚀 Deployment
 
 ### API Deployment
+
 ```bash
 npm run build
 npm start
 ```
 
 ### Client Deployment
+
 ```bash
 cd client
 npm run build
@@ -338,6 +366,7 @@ npm start
 ```
 
 ### Docker Deployment (Future)
+
 ```bash
 # Docker support coming soon
 docker build -t countrydeeplens .
@@ -389,12 +418,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - 📧 **Email**: support@countrydeeplens.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/countrydeeplens/issues)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/imdeepakyadav/countrydeeplens/issues)
 - 📖 **Documentation**: [API Docs](http://localhost:3000/api-docs)
 
 ## 🔄 Version History
 
 ### v1.0.0 (Current)
+
 - ✅ Initial release
 - ✅ REST API with comprehensive endpoints
 - ✅ Next.js frontend with modern UI
@@ -403,6 +433,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - ✅ Swagger documentation
 
 ### Future Releases
+
 - 🔄 Docker support
 - 🔄 GraphQL API
 - 🔄 Real-time updates
@@ -413,4 +444,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **🌍 Happy exploring with CountryDeepLens!** ✨
 
-*Made with ❤️ for developers and data enthusiasts*
+_Made with ❤️ for developers and data enthusiasts_

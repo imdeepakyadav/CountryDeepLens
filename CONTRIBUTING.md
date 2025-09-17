@@ -35,7 +35,7 @@ This project follows a code of conduct to ensure a welcoming environment for all
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/countrydeeplens.git
+   git clone https://github.com/imdeepakyadav/countrydeeplens.git
    cd countrydeeplens
    ```
 3. **Add upstream remote**:
@@ -65,7 +65,7 @@ This project follows a code of conduct to ensure a welcoming environment for all
 
 ### Finding Issues to Work On
 
-- Check the [Issues](https://github.com/yourusername/countrydeeplens/issues) page
+- Check the [Issues](https://github.com/imdeepakyadav/countrydeeplens/issues) page
 - Look for issues labeled `good first issue` or `help wanted`
 - Comment on issues you'd like to work on to avoid duplicate work
 
@@ -92,6 +92,7 @@ type(scope): description
 ```
 
 Types:
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -101,6 +102,7 @@ Types:
 - `chore`: Maintenance tasks
 
 Examples:
+
 ```
 feat(api): add population filtering endpoint
 fix(ui): resolve flag display issue on mobile
@@ -135,6 +137,7 @@ docs(readme): update installation instructions
 ### Pull Request Process
 
 1. **Update your branch** with the latest changes:
+
    ```bash
    git checkout main
    git pull upstream main
@@ -143,6 +146,7 @@ docs(readme): update installation instructions
    ```
 
 2. **Run tests** to ensure everything works:
+
    ```bash
    npm test
    cd client && npm test && cd ..
@@ -151,6 +155,7 @@ docs(readme): update installation instructions
 3. **Commit your changes** with clear messages
 
 4. **Push to your fork**:
+
    ```bash
    git push origin your-feature-branch
    ```
@@ -168,9 +173,11 @@ Please use this template when creating pull requests:
 
 ```markdown
 ## Description
+
 Brief description of the changes made
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Documentation update
@@ -178,14 +185,17 @@ Brief description of the changes made
 - [ ] Performance improvement
 
 ## Testing
+
 - [ ] Unit tests added/updated
 - [ ] Manual testing performed
 - [ ] All existing tests pass
 
 ## Screenshots (if applicable)
+
 Add screenshots of UI changes
 
 ## Additional Notes
+
 Any additional information or context
 ```
 
@@ -230,6 +240,7 @@ If you need help:
 ## 🎉 Recognition
 
 Contributors will be:
+
 - Listed in the project's contributors file
 - Mentioned in release notes
 - Recognized for their valuable contributions

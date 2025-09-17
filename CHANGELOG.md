@@ -71,7 +71,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 🔗 Version History
 
-For older versions, please check the [Git history](https://github.com/yourusername/countrydeeplens/commits/main).
+For older versions, please check the [Git history](https://github.com/imdeepakyadav/countrydeeplens/commits/main).
 
 ---
 
